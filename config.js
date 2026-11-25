@@ -3,5 +3,5 @@
 window.ICH_CONFIG = {
   supabaseUrl: "https://zautzirdfbuusyqymjyb.supabase.co",
   supabaseAnonKey: "sb_publishable_hRN8h3szGt3Tmioyeaq5kQ_z0cxYunx",
-  whatsappNumber: ""
+  whatsappNumber: "584247197171"
 };
