@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111111">
+  <title>Administración | ICH</title>
+  <link rel="stylesheet" href="styles.css?v=20261125-2">
+</head>
+<body class="admin-body">
+  <header class="topbar admin-topbar">
+    <a class="brand" href="./"><img src="assets/ich-logo.png" alt=""><span><b>ICH</b><small>ADMINISTRACIÓN</small></span></a>
+    <a class="text-button" href="./">← Volver a la tienda</a>
+  </header>
+  <main class="admin-main">
+    <section class="login-card" id="login-panel">
+      <p class="eyebrow">ÁREA PRIVADA</p><h1>Administrador ICH</h1>
+      <p class="muted">Ingresa con el usuario administrador creado en Supabase.</p>
+      <form id="login-form">
+        <label>Correo de acceso<input id="login-email" type="email" required autocomplete="username"></label>
+        <label>Contraseña<input id="login-password" type="password" required autocomplete="current-password"></label>
+        <button class="primary-button full" type="submit">INGRESAR</button>
+        <p class="form-message" id="login-message"></p>
+      </form>
+    </section>
+
+    <section id="dashboard" class="dashboard hidden">
+      <div class="section-heading"><div><p class="eyebrow">PANEL PRIVADO</p><h1>Administración ICH</h1></div><button id="logout" class="outline-button">Cerrar sesión</button></div>
+      <div class="admin-tabs" role="tablist">
+        <button class="admin-tab active" data-tab="products-panel" type="button">PRODUCTOS</button>
+        <button class="admin-tab" data-tab="brands-panel" type="button">MARCAS</button>
+        <button class="admin-tab" data-tab="motorcycles-panel" type="button">MOTOCICLETAS</button>
+      </div>
+
+      <section id="products-panel" class="admin-panel">
+        <div class="admin-columns">
+          <form id="product-form" class="editor-card">
+            <h2 id="form-title">Agregar producto</h2>
+            <input type="hidden" id="product-id">
+            <label>Nombre del producto<input id="p-name" required maxlength="150" placeholder="Ej. Pastillas de freno"></label>
+            <div class="form-row">
+              <label>Referencia<input id="p-reference" placeholder="Ej. REF-001"></label>
+              <label>Precio (COP)<input id="p-price" type="number" min="0" step="1" required placeholder="25000"></label>
+            </div>
+            <div class="form-row">
+              <label>Categoría<select id="p-category" required></select></label>
+              <label>Marca del repuesto<select id="p-brand"><option value="">Sin marca</option></select></label>
+            </div>
+            <label>Descripción<textarea id="p-description" rows="3" placeholder="Detalles del repuesto..."></textarea></label>
+            <label>Fotografía del producto<input id="p-image" type="file" accept="image/jpeg,image/png,image/webp"></label>
+            <label class="check-label"><input id="p-active" type="checkbox" checked> Producto visible en la tienda</label>
+            <div class="form-row"><button class="primary-button" type="submit">GUARDAR PRODUCTO</button><button class="outline-button" id="cancel-edit" type="button">Limpiar</button></div>
+            <p class="form-message" id="product-message"></p>
+          </form>
+          <section class="inventory-card">
+            <div class="inventory-head"><h2>Productos</h2><span id="admin-count">0</span></div>
+            <input class="inventory-search" id="admin-search" placeholder="Buscar producto...">
+            <div id="inventory-list" class="inventory-list"><p class="muted">Cargando productos...</p></div>
+          </section>
+        </div>
+      </section>
+
+      <section id="brands-panel" class="admin-panel hidden">
+        <div class="admin-columns">
+          <form id="brand-form" class="editor-card">
+            <h2 id="brand-form-title">Agregar marca</h2>
+            <input type="hidden" id="brand-id">
+            <label>Nombre de la marca<input id="brand-name" required maxlength="80" placeholder="Ej. Honda"></label>
+            <div class="form-row"><button class="primary-button" type="submit">GUARDAR MARCA</button><button class="outline-button" id="brand-clear" type="button">Limpiar</button></div>
+            <p class="form-message" id="brand-message"></p>
+          </form>
+          <section class="inventory-card">
+            <div class="inventory-head"><h2>Marcas registradas</h2><span id="brand-count">0</span></div>
+            <input class="inventory-search" id="brand-search" placeholder="Buscar marca...">
+            <div id="brand-list" class="inventory-list"></div>
+          </section>
+        </div>
+      </section>
+
+      <section id="motorcycles-panel" class="admin-panel hidden">
+        <div class="admin-columns">
+          <form id="motorcycle-form" class="editor-card">
+            <h2 id="motorcycle-form-title">Agregar motocicleta</h2>
+            <input type="hidden" id="motorcycle-id">
+            <label>Marca<input id="m-brand" required maxlength="80" placeholder="Ej. Honda"></label>
+            <label>Modelo<input id="m-model" required maxlength="100" placeholder="Ej. CB 125F"></label>
+            <div class="form-row">
+              <label>Año desde<input id="m-year-from" type="number" min="1950" max="2100" placeholder="2018"></label>
+              <label>Año hasta<input id="m-year-to" type="number" min="1950" max="2100" placeholder="2026"></label>
+            </div>
+            <div class="form-row"><button class="primary-button" type="submit">GUARDAR MOTOCICLETA</button><button class="outline-button" id="motorcycle-clear" type="button">Limpiar</button></div>
+            <p class="form-message" id="motorcycle-message"></p>
+            <p class="muted">Puedes escribir cualquier marca y modelo. No necesitas escogerlos de una lista predeterminada.</p>
+          </form>
+          <section class="inventory-card">
+            <div class="inventory-head"><h2>Motocicletas registradas</h2><span id="motorcycle-count">0</span></div>
+            <input class="inventory-search" id="motorcycle-search" placeholder="Buscar marca o modelo...">
+            <div id="motorcycle-list" class="inventory-list"></div>
+          </section>
+        </div>
+      </section>
+      <p class="form-message" id="global-message"></p>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js?v=20261125-2"></script>
+  <script src="admin.js?v=20261125-2"></script>
+</body>
+</html>

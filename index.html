@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111111">
+  <title>ICH | Repuestos para motos</title>
+  <link rel="icon" href="assets/ich-logo.png">
+  <link rel="stylesheet" href="styles.css?v=20261125-2">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="ICH inicio">
+      <img src="assets/ich-logo.png" alt="Logotipo ICH">
+      <span><b>ICH</b><small>REPUESTOS PARA MOTOS</small></span>
+    </a>
+    <nav>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#categorias">Categorías</a>
+      <a href="#footer">Contacto</a>
+    </nav>
+    <button class="cart-button" id="open-cart" type="button">🛒 <span>Carrito</span> <b id="cart-count">0</b></button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">TU TIENDA DE CONFIANZA</p>
+        <h1>Todo para tu moto.<br><em>Todo en un solo lugar.</em></h1>
+        <p>Encuentra repuestos y accesorios por categoría, marca o referencia.</p>
+        <a class="primary-button" href="#catalogo">VER CATÁLOGO</a>
+      </div>
+      <div class="hero-mark"><img src="assets/ich-logo.png" alt="ICH"></div>
+    </section>
+
+    <section class="section" id="categorias">
+      <div class="section-heading">
+        <div><p class="eyebrow">ENCUENTRA LO QUE BUSCAS</p><h2>Categorías</h2></div>
+        <button class="text-button" id="show-all-top" type="button">Ver todos los productos →</button>
+      </div>
+      <div class="category-list" id="category-list"></div>
+    </section>
+
+    <section class="section catalog-section" id="catalogo">
+      <div class="section-heading">
+        <div><p class="eyebrow">REPUESTOS Y ACCESORIOS</p><h2 id="catalog-title">Todos los productos</h2></div>
+        <span class="product-total" id="product-total">0 productos</span>
+      </div>
+      <div class="filters">
+        <label class="searchbox">⌕ <input id="search" type="search" placeholder="Buscar por nombre o referencia..." autocomplete="off"></label>
+        <select id="brand-filter" aria-label="Filtrar por marca"><option value="">Todas las marcas</option></select>
+        <select id="sort" aria-label="Ordenar productos">
+          <option value="recent">Más recientes</option>
+          <option value="name">Nombre A-Z</option>
+          <option value="price-asc">Menor precio</option>
+          <option value="price-desc">Mayor precio</option>
+        </select>
+      </div>
+      <div class="product-grid" id="product-grid">
+        <div class="empty-state"><b>Catálogo ICH</b><p>Cuando conectemos el inventario, aquí aparecerán tus productos con sus fotografías y precios.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="footer-brand"><img src="assets/ich-logo.png" alt=""><b>ICH</b><span>REPUESTOS PARA MOTOS</span></div>
+    <p>Repuestos y accesorios para tu motocicleta.</p>
+    <small>© <span id="year"></span> ICH. Todos los derechos reservados.</small>
+  </footer>
+
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Carrito de compras">
+    <div class="drawer-head"><h2>Tu carrito</h2><button id="close-cart" class="icon-button" aria-label="Cerrar">✕</button></div>
+    <div id="cart-items" class="cart-items"><p class="muted">Todavía no has agregado productos.</p></div>
+    <div class="cart-bottom"><div class="total-line"><span>Total</span><b id="cart-total">$0</b></div><button id="checkout" class="primary-button full" type="button">Continuar por WhatsApp</button><small id="whatsapp-note">El número de WhatsApp se configurará más adelante.</small></div>
+  </aside>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js?v=20261125-2"></script>
+  <script src="store.js?v=20261125-2"></script>
+</body>
+</html>
