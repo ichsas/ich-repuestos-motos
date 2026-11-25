@@ -11,3 +11,10 @@
 .brand-avatar{width:55px;height:55px;border-radius:4px;background:#f3f3f3;display:grid;place-items:center;font-size:23px;font-weight:800}
 .admin-panel .inventory-item{grid-template-columns:55px 1fr auto}
 .admin-panel .editor-card .muted{line-height:1.6}
+
+
+/* Descarga del catálogo PDF */
+.catalog-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 22px}
+.catalog-actions .primary-button{border:0;cursor:pointer;font:800 11px Arial,sans-serif;letter-spacing:.4px}
+.catalog-actions small{color:#777;font-size:11px}
+@media(max-width:600px){.catalog-actions{align-items:stretch}.catalog-actions .primary-button{width:100%;text-align:center;padding:14px 10px}.catalog-actions small{text-align:center}}

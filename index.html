@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#111111">
   <title>ICH | Repuestos para motos</title>
-  <link rel="icon" href="ich-logo.png">
-  <link rel="stylesheet" href="styles.css?v=20261125-2">
+  <link rel="icon" href="assets/ich-logo.png">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="topbar">
     <a class="brand" href="./" aria-label="ICH inicio">
-      <img src="ich-logo.png" alt="Logotipo ICH">
+      <img src="assets/ich-logo.png" alt="Logotipo ICH">
       <span><b>ICH</b><small>REPUESTOS PARA MOTOS</small></span>
     </a>
     <nav>
@@ -30,7 +30,7 @@
         <p>Encuentra repuestos y accesorios por categoría, marca o referencia.</p>
         <a class="primary-button" href="#catalogo">VER CATÁLOGO</a>
       </div>
-      <div class="hero-mark"><img src="ich-logo.png" alt="ICH"></div>
+      <div class="hero-mark"><img src="assets/ich-logo.png" alt="ICH"></div>
     </section>
 
     <section class="section" id="categorias">
@@ -56,6 +56,10 @@
           <option value="price-desc">Mayor precio</option>
         </select>
       </div>
+      <div class="catalog-actions">
+        <button class="primary-button" id="download-catalog-pdf" type="button">⬇ DESCARGAR CATÁLOGO PDF</button>
+        <small>Catálogo actualizado con fotografías y precios.</small>
+      </div>
       <div class="product-grid" id="product-grid">
         <div class="empty-state"><b>Catálogo ICH</b><p>Cuando conectemos el inventario, aquí aparecerán tus productos con sus fotografías y precios.</p></div>
       </div>
@@ -63,7 +67,7 @@
   </main>
 
   <footer id="footer">
-    <div class="footer-brand"><img src="ich-logo.png" alt=""><b>ICH</b><span>REPUESTOS PARA MOTOS</span></div>
+    <div class="footer-brand"><img src="assets/ich-logo.png" alt=""><b>ICH</b><span>REPUESTOS PARA MOTOS</span></div>
     <p>Repuestos y accesorios para tu motocicleta.</p>
     <small>© <span id="year"></span> ICH. Todos los derechos reservados.</small>
   </footer>
@@ -76,7 +80,7 @@
   </aside>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="config.js?v=20261125-2"></script>
-  <script src="store.js?v=20261125-2"></script>
+  <script src="config.js"></script>
+  <script src="store.js"></script>
 </body>
 </html>
